@@ -46,13 +46,13 @@ export const UserProvider = ({ children }) => {
     // const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);2-cut:direct destructure currentuser
     // const { currentUser } = state ;2-cut
     const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE)
-    const setCurrentUser = (user) => {
+    const setCurrentUser = (user) =>
         // dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user })
         dispatch(
             createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user)
         )
-        // console.log(currentUser)
-    }
+    // console.log(currentUser)
+
     const value = { currentUser, setCurrentUser };
 
     useEffect(() => {

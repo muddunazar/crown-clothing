@@ -5,16 +5,22 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg'
 //mod conext-second -video
-import { UserContext } from "../../contexts/user.context";
-import { CartContext } from "../../contexts/cart.context";
+// import { UserContext } from "../../contexts/user.context";
+// import { CartContext } from "../../contexts/cart.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { NavigationContainer, LogoContainer, NavLinks, NavLink } from './navigation.styles.jsx'
-
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
 const Navigation = () => {
-    //mod conext-second -video
-    const { currentUser, } = useContext(UserContext);
-    const { isCartOpen } = useContext(CartContext);
+    // const { currentUser, } = useContext(UserContext);
+    // const currentUser = useSelector((state) => state.user.currentUser)
+    const currentUser = useSelector(selectCurrentUser)
+    // const { isCartOpen } = useContext(CartContext);
+    const isCartOpen = useSelector(selectIsCartOpen);
+
+
     // console.log(currentUser)
     // const signOutHandler = async () => {
     //     // const res = await signOutUser();
