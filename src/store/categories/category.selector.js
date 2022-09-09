@@ -18,6 +18,12 @@ export const selectCategoriesMap = createSelector(
         return acc;
     }, {})
 ); 
+
+export const selectCategoriesIsLoading = createSelector(
+    [selectCategoryReducer],
+    (categoriesSlice)=>categoriesSlice.isLoading
+)
+
 //4cut export const selectCategoriesMap = (state) => {
 //     console.log('selector fired!!')
 //     return state.categories.categories

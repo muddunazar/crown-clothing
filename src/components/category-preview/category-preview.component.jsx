@@ -1,7 +1,6 @@
 // import { Link } from 'react-router-dom';
 import ProductCard from '../product-card/product-card.component.jsx';
 import { CategoryPreviewContainer, Title, Preview } from './category-preview.styles';
-
 const CategoryPreview = ({ title, products }) => {
     // console.log(products)
     return (
@@ -19,5 +18,3 @@ const CategoryPreview = ({ title, products }) => {
     )
 }
 export default CategoryPreview;
-
-

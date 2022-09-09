@@ -2,16 +2,18 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { logger } from "redux-logger";
-
 import { rootReducer } from './root-reducer';
+import thunk from 'redux-thunk';
 // configuration object tells redux persist what we want
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['user']
+    // blacklist: ['user'],
+    whitelist: ['cart']
+
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-const middleWares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean);
+const middleWares = [process.env.NODE_ENV !== 'production' && logger, thunk].filter(Boolean);
 // const middleWares = [loggerMiddleware];
 
 //for devtool composed enhancer
