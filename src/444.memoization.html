@@ -10,8 +10,14 @@
         }
         // addTo80(5)
         console.log(addTo80(5))
+        // long time no see
+        //85
         console.log(addTo80(5))
+        // long time no see
+        //85
         console.log(addTo80(5))
+        // long time no see
+        //85
 
 
         let obj = {
@@ -39,50 +45,22 @@
         console.log(memoizedAddTo80(6))
         console.log(memoizedAddTo80(6))
         console.log(memoizedAddTo80(6))
+        //long time no see  
+        // 86
+        // 86
+        // 86
 
         console.log(memoizedAddTo80(7))
+        //long time no see  
+        // 87
+
         console.log(memoizedAddTo80(8))
+        //long time no see
+        // 88
     </script>
 </head>
 
 <body>
-    ????????????
-    import './checkout-item.styles.scss'
-    // import { useContext } from 'react';
-    // import { CartContext } from '../../contexts/cart.context';
-    import { useSelector, useDispatch } from 'react-redux';
-    import { selectCartItems } from '../../store/cart/cart.selector';
-    import { addItemToCart, clearItemFromCart, removeItemFromCart } from '../../store/cart/cart.action';
-
-    const CheckOutItem = ({ cartItem }) => {
-    const { name, imageUrl, price, quantity } = cartItem
-
-    const { clearItemFromCart, addItemToCart, removeItemFromCart, } = useContext(CartContext)
-
-    const clearItemHandler = () => clearItemFromCart(cartItem);
-    const addItemHandler = () => addItemToCart(cartItem);
-    const removeItemHandler = () => removeItemFromCart(cartItem);
-    return (
-    <div className='checkout-item-container'>
-        <div className='image-container'>
-            <img src={imageUrl} alt={`${name}`} />
-        </div>
-        <span className='name'>{name}</span>
-        <span className='quantity'>
-            <div className='arrow' onClick={removeItemHandler}>&#10094;</div>
-            <span className='value'>{quantity}</span>
-            <div className='arrow' onClick={addItemHandler}>&#10095;</div>
-        </span>
-        <span className='price'>{price}</span>
-        <span className='remove-button' onClick={clearItemHandler}>&#10005;</span>
-
-    </div>
-    )
-    }
-    export default CheckOutItem;
-
-    ????????????
-
 </body>
 
 </html>

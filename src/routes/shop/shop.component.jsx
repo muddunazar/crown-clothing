@@ -2,14 +2,14 @@ import { Routes, Route } from 'react-router-dom';
 import CategoriesPreview from '../categories-preview/categories-preview.component.jsx';
 import Category from '../category/category.component'
 import { useEffect } from 'react';
-import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils.jsx';
-import { fetchCategoriesAsync, setCategories } from '../../store/categories/category.action.js';
+// import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils.jsx';
+import { fetchCategoriesAsync, setCategories, fetchCategoriesStart } from '../../store/categories/category.action.js';
 import { useDispatch } from 'react-redux';
 
 const Shop = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(fetchCategoriesAsync());
+        dispatch(fetchCategoriesStart());
     }, []);
 
     // const getCategoriesMap = async () => {

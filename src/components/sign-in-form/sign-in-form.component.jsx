@@ -9,6 +9,8 @@ import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 // import { UserContext } from "../../contexts/user.context";
 import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles'
+import { useDispatch } from "react-redux";
+import { googleSignInStart, emailSignInStart } from "../../store/user/user.action";
 const defaultFormState = {
     // displayName: '',
     email: '',
@@ -16,6 +18,8 @@ const defaultFormState = {
     // confirmPassword: ''
 }
 const SignInForm = () => {
+
+    const dispatch = useDispatch();
 
     const [formFields, setFormFields] = useState(defaultFormState);
     const { email, password } = formFields;
@@ -28,7 +32,8 @@ const SignInForm = () => {
 
     };
     const signInWithGoogle = async () => {
-        await signInWithGooglePopup();
+        // await signInWithGooglePopup();
+        dispatch(googleSignInStart());
     };
     //7-2-video
     // const { user } = await signInWithGooglePopup();  previous one
@@ -45,7 +50,8 @@ const SignInForm = () => {
         //     console.log(response);
         //     reserFormFeilds();
         try {
-            const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+            // const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+            dispatch(emailSignInStart(email, password));
             // console.log(response);
             // setCurrentUser(user)
 

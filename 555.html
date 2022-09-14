@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <script>
+        // const memo = fn => {
+        //     let memory = []; // memory in scope of the first function
+        //     return anything => { // scope of the second function
+        //         if (anything in memory) {
+        //             return memory[anything]; // return from memory
+        //         } else {
+        //             const result = fn(anything);
+        //             console.log(result)
+        //             memory[anything] = result; // put into memory
+        //             return result;
+        //         }
+        //     };
+        // };
+        // const upperCase = memo(a => a.toUpperCase()); // memoize toUpperCase
+        // upperCase(' 7urtle '); // = > ' 7URTLE '
+        // const uppercase2 = anything => memo(a => a.toUpperCase())(anything);
+        // uppercase2(' 7urtle ');
+
+        const memo = function (fn) {
+            let memory = []; // memory in scope of the first function
+            return function (anything) { // scope of the second function
+                if (anything in memory) {
+
+                    return memory[anything]; // return from memory
+                } else {
+                    const result = fn(anything);
+                    console.log(result)
+                    console.log(memory)
+                    memory[anything] = result; // put into memory
+                    return result;
+                }
+            };
+        };
+        const upperCase = memo(a => a.toUpperCase()); // memoize toUpperCase
+        console.log(memo(a => a.toUpperCase()))
+        upperCase(' 7urtle '); // = > ' 7URTLE ' only logs for first time;
+        upperCase(' 7urtle '); // = > 
+        upperCase(' 7urtle '); // = > 
+        upperCase(' 7urtle '); // = >  
+
+        upperCase('abcc')
+        upperCase('abcc')
+
+
+        // upperCase('xzcvzdv')
+        // const aa = memo(a => a.toUpperCase())("asssssjjfgf")
+        // console.log(aa)
+        // console.log(aa)
+        // console.log(aa)
+
+
+
+        const uppercase2 = anything => memo(a => a.toUpperCase())(anything);
+        uppercase2(' 7urtle ');
+
+
+
+
+        const radius = [3, 1, 2, 4];
+        const area = function (radius) {
+            return Math.PI * radius * radius;
+        };
+        const cicumference = function (radius) {
+            return 2 * Math.PI * radius;
+        };
+        const calculate = function (radius, logic) {
+            const output = [];
+            for (let i = 0; i < radius.length; i++) {
+                output.push(logic(radius[i]));
+            }
+            return output;
+        };
+        console.log(calculate(radius, area));
+        console.log(calculate(radius, cicumference));
+        const calculateArea = function (radius) {
+            const output = [];
+            for (let i = 0; i < radius.length; i++) {
+                output.push(Math.PI * radius[i] * radius[i]);
+            }
+            return output;
+        };
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
