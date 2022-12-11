@@ -8,8 +8,20 @@ export const CategoryContainer = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 400px) {
+  @media (max-width: 490px) {
     grid-template-columns: repeat(1, 1fr);
+    width: 70%;
+    margin: auto;
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 85%;
+    margin: auto;
+  }
+  @media (max-width: 340px) {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin: auto;
   }
 `;
 
